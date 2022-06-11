@@ -2,7 +2,7 @@
 Author: Jadedever
 Date: 2022-05-12 09:30:30
 LastEditors: Jadedever
-LastEditTime: 2022-05-13 23:39:00
+LastEditTime: 2022-06-09 15:00:52
 FilePath: /Python_Homework/tool/create2wstudent.py
 Description: 生成 2 万学生列表
 
@@ -15,7 +15,7 @@ import csv
 
 ## type=xlsx or csv
 def create_student(start, count, type='xlsx'):
-    filename = 'data/模拟学生数据表'+str(start)+"-"+str(count+start)+"."+type
+    filename = '/Users/afujade/Desktop/data/模拟学生数据表'+str(start)+"-"+str(count+start-1)+"."+type
 
     if type == 'xlsx':
         sheet_title = str(start)+"-"+str(count+start)
@@ -29,7 +29,7 @@ def create_student(start, count, type='xlsx'):
         for row in header:
             sheet.append(row)
 
-        for i in range(count):
+        for i in range(count): 
             sheet.append(build_row_data(start+i))
 
         wb.save(filename)
@@ -75,7 +75,8 @@ def build_row_data(index, is_short=False):
         return [username, email, pwd, phone, truename, gender, company, job, industry, id_card]
 
 
-
-for i in range(1):
-    # create_student(i*500, 500,'csv')
-    create_student(i*500, 500,'xlsx')
+per_count=900
+for i in range(27):
+    start = i*per_count if i>0 else 1
+    create_student(start, per_count,'xlsx')
+    # create_student(500, 500,'xlsx')

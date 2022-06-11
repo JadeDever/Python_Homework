@@ -2,8 +2,8 @@
 Author: Jadedever
 Date: 2022-05-15 14:03:46
 LastEditors: Jadedever
-LastEditTime: 2022-05-15 14:03:48
-FilePath: /Python_Homework/lesson_10/多线程代码解析.py
+LastEditTime: 2022-06-02 17:00:48
+FilePath: /Python_Homework/lesson_9:多线程/多线程代码解析.py
 Description: 
 
 Copyright (c) 2022 by Jadedever, All Rights Reserved. 
@@ -13,7 +13,7 @@ import requests
 # 导入 concurrent.futures 这个包
 from concurrent import futures
 
-urls = ["https://wpblog.x0y1.com/?p=34"] * 30
+urls = ["http://www.myvoc.cn"] * 20000
 # 初始化一个线程池，最大的同时任务数是 5
 executor = futures.ThreadPoolExecutor(max_workers=5)
 session = requests.Session()

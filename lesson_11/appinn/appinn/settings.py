@@ -86,3 +86,16 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+
+# 上面都是自动生成的，下面开始是我们自己定义的
+# 要使用的 pipeline
+ITEM_PIPELINES = {
+  'appinn.pipelines.AppinnPipeline': 300,  # 300 表示顺序，pipeline 有多个时，数字越小越先执行
+}
+FEED_FORMAT = 'csv'  # 最后输出的文件格式
+FEED_URI = 'appin_windows_apps.csv'  # 最后输出的文件名
+
+# 为了避免对被爬网站造成太大的压力，我们启动自动限速，设置最大并发数为 5
+AUTOTHROTTLE_ENABLED = True
+AUTOTHROTTLE_TARGET_CONCURRENCY = 5
